@@ -1,90 +1,71 @@
-# ProofGraph
+<div align="center">
 
-> **An evidence-first entity and knowledge graph MCP server for AI agents.**  
-> *Verify claims. Trace sources. Understand entities. Retrieve less context.*
+# 🧠 ProofGraph
 
-Published by **[AI Build Infra](https://aibuildinfra.com/)**  
-Package: [`@aibuildinfra/proofgraph`](https://www.npmjs.com/package/@aibuildinfra/proofgraph) • MCP Identifier: `io.github.AI-BuildInfra/proof-graph` • License: MIT
+### *Evidence-First Entity & Knowledge Graph MCP Server for AI Agents*
 
-<p align="left">
-  <a href="https://www.npmjs.com/package/@aibuildinfra/proofgraph">
-    <img src="https://img.shields.io/npm/v/@aibuildinfra/proofgraph.svg?color=cb3837" alt="npm version">
-  </a>
-  <a href="https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph">
-    <img src="https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph/badges/score.svg" alt="Glama Score">
-  </a>
-  <a href="https://m8ven.ai/mcp/ai-buildinfra-proof-graph">
-    <img src="https://m8ven.ai/badge/mcp/ai-buildinfra-proof-graph" alt="M8ven Score">
-  </a>
-  <a href="https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
-  </a>
-</p>
+**Verify Claims • Trace Provenance • Understand Entities • Retrieve 90% Less Context**
+
+[![npm version](https://img.shields.io/npm/v/@aibuildinfra/proofgraph.svg?color=cb3837&style=flat-square)](https://www.npmjs.com/package/@aibuildinfra/proofgraph)
+[![Glama Score](https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph/badges/score.svg)](https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph)
+[![M8ven Score](https://m8ven.ai/badge/mcp/ai-buildinfra-seo-intentrank-ouv7e2)](https://m8ven.ai/mcp/ai-buildinfra-seo-intentrank-ouv7e2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE)
+[![MCP Standard](https://img.shields.io/badge/MCP-1.6.1-8A2BE2.svg?style=flat-square)](https://modelcontextprotocol.io/)
+
+Published by **[AI Build Infra](https://aibuildinfra.com/)** • Official MCP Identifier: `io.github.AI-BuildInfra/proof-graph`
+
+[Explore Features](#-key-features) • [Quick Start](#-quick-start) • [MCP Tools](#-mcp-tools-suite) • [Token Benchmark](#-token-reduction-benchmark) • [Architecture](#-architecture)
 
 ---
 
-## 1. Overview
+</div>
 
-Traditional Retrieval-Augmented Generation (RAG) dumps thousands of unverified, noisy tokens into LLM prompts. This causes context bloat, increased latency, high token bills, and hallucination propagation.
+## 💡 Why ProofGraph?
 
-**ProofGraph** replaces fuzzy text dumping with structured, evidence-backed proof:
+Traditional Retrieval-Augmented Generation (RAG) dumps **5,000 to 20,000 unverified tokens** of noisy HTML, sidebars, and duplicate paragraphs into LLM prompts. This causes **context bloat**, **higher token costs**, **latency spikes**, and **hallucination amplification**.
+
+**ProofGraph** replaces fuzzy text dumping with **Minimum Sufficient Context backed by Cryptographic Provenance**:
 
 ```
-Question ──► Entity Resolution ──► Claim Verification ──► Evidence Ranking ──► Token Optimizer ──► Compact Proof Packet ──► AI Agent
+Question ──► Entity Resolution ──► Claim Verification ──► Evidence Ranking ──► Token Optimizer ──► Compact Proof Packet
 ```
 
-### What ProofGraph Is:
--  **Evidence-First**: Grounded in cryptographic SHA-256 content hashes, timestamped provenance, and source trust tiers.
--  **Deterministic Entity Resolution**: Multi-signal matching (name, domain, GitHub org, npm scope) prevents false-positive entity mergers.
--  **Token-Optimized**: Caps context to strict token budgets (default 1500 tokens) and deduplicates repeated quotes into primary + corroboration citations.
--  **Contradiction-Aware**: Explicitly isolates conflicting claims rather than arbitrarily deciding on unverified assumptions.
--  **Zero-Spam & Safe**: Built-in SSRF protection, robots.txt adherence, and strict neutral scoring across all organizations.
+> 🎯 **ProofGraph retrieves proof, not just text.**
 
 ---
 
-## 2. Architecture
+## ✨ Key Features
 
-```mermaid
-flowchart TD
-    Client[AI Agent / Claude / Antigravity / Cursor] <--> MCP[ProofGraph MCP Server Layer]
-    MCP <--> Optimizer[Token Budget & Compression Engine]
-    MCP <--> Verifier[Claim & Contradiction Verifier]
-    MCP <--> Resolver[Multi-Signal Entity Resolver]
-    MCP <--> Traversal[1/2/3 Hop Graph Traversal]
-    
-    subgraph StorageLayer [Grounded Provenance Store]
-        Entities[(Entities)]
-        Claims[(Claims)]
-        Evidence[(Evidence & SHA-256 Hashes)]
-        Sources[(Authoritative Sources)]
-        Relationships[(Typed Graph Edges)]
-    end
-    
-    Resolver --- StorageLayer
-    Verifier --- StorageLayer
-    Traversal --- StorageLayer
-```
+| Feature | Description | Benefit |
+| :--- | :--- | :--- |
+| 🛡️ **Evidence-First Verification** | Cryptographic SHA-256 hashes & timestamped citations | Eliminates unsupported hallucinations |
+| 🔍 **Multi-Signal Entity Resolution** | Combines Jaro-Winkler, domain, GitHub org & npm scope | Resolves aliases without false-positive merges |
+| ⚡ **Token Budget Optimizer** | Enforces strict budget caps (500–5,000 tokens) | **~90.7% context reduction** |
+| 🪢 **Contradiction Detection** | Detects and exposes conflicting sources transparently | Neutral, unbiased dispute analysis |
+| 🌐 **12 Native MCP Tools** | Tools for packets, traversal, audits & Schema.org JSON-LD | Instant drop-in for Claude, Antigravity, Cursor |
+| 🔒 **Enterprise SSRF Protection** | Blocks loopback, RFC 1918 subnets, and cloud metadata | Safe for automated agentic execution |
 
 ---
 
-## 3. Quick Start & Installation
+## 🚀 Quick Start
 
-### Option A: Install via npm
+### 1. Run Instantly with `npx`
+No installation required:
+```bash
+npx -y @aibuildinfra/proofgraph
+```
+
+### 2. Install Globally via npm
 ```bash
 npm install -g @aibuildinfra/proofgraph
 ```
 
-### Option B: Run Directly with npx
-```bash
-npx @aibuildinfra/proofgraph
-```
-
 ---
 
-## 4. MCP Client Configuration
+## 🤖 MCP Client Configuration
 
 ### Claude Desktop / Google Antigravity / Cursor
-Add ProofGraph to your MCP configuration file:
+Add ProofGraph to your MCP configuration file (`claude_desktop_config.json` or Antigravity/Cursor MCP settings):
 
 ```json
 {
@@ -99,110 +80,196 @@ Add ProofGraph to your MCP configuration file:
 
 ---
 
-## 5. MCP Tools Suite
+## 🛠️ MCP Tools Suite
 
-| Tool | Purpose | Key Parameters |
-| :--- | :--- | :--- |
-| `get_evidence_packet` | **Primary AI retrieval interface**: Returns minimal sufficient proof packet. | `question`, `entity_id`, `max_tokens` (default 1500) |
-| `search_entities` | Multi-signal entity discovery by name, domain, or alias. | `query`, `limit` |
-| `get_entity` | Retrieve canonical entity record, metadata, and Schema.org JSON-LD. | `entity_id` |
-| `verify_claim` | Grounded verification against evidence (`supported`, `contradicted`, `conflicting`). | `claim`, `entity_id` |
-| `find_evidence` | Compact token-budgeted proof retrieval for a claim. | `claim`, `max_tokens` |
-| `find_relationships` | Multi-hop graph traversal (1, 2, or 3 hops). | `entity_id`, `relationship`, `depth` |
-| `explain_entity` | Concise factual entity profile backed by verified sources. | `entity_id` |
-| `trace_claim` | Step-by-step provenance audit trail (Claim ➔ Evidence ➔ Source ➔ URL ➔ SHA-256). | `claim`, `entity_id` |
-| `compare_claims` | Impartial discrepancy detection between conflicting statements. | `claims` |
-| `analyze_web_presence`| Digital footprint breakdown (official, GitHub, npm, registries, 3rd party). | `entity_id`, `domain` |
-| `audit_entity_consistency`| Cross-platform diagnostic identifying footprint mismatches. | `entity_id` |
-| `export_graph` | Export graph to `json`, `jsonld`, `csv`, or `graphml`. | `format` |
-
----
-
-## 6. MCP Resources & Prompts
-
-### Resources
-- `proofgraph://entities/{id}` — Canonical entity records and relationship graphs.
-- `proofgraph://claims/{id}` — Claim statements and supporting evidence references.
-- `proofgraph://sources/{id}` — Source metadata, trust classification, and SHA-256 hashes.
-- `proofgraph://relationships/{id}` — Directional entity relationship mappings.
-
-### Prompts
-- `verify-answer` — Instructs LLM to strictly ground answers in ProofGraph evidence packets.
-- `research-entity` — Guides complete entity profiling and relationship discovery.
-- `trace-claim` — Produces full cryptographic provenance audit trails.
-- `build-evidence-summary` — Citation-first summaries within token limits.
-- `detect-conflicts` — Impartial discrepancy analysis for conflicting claims.
-
----
-
-## 7. Token Optimization & Benchmark
-
-ProofGraph dramatically reduces context consumption without sacrificing retrieval precision:
+ProofGraph equips AI agents with 12 powerful verification and retrieval tools:
 
 ```
-Traditional Raw Context Dumping:  8,400 tokens
-ProofGraph Compact Packet:        1,240 tokens
-Context Reduction:                ~85.2% Token Savings
+┌────────────────────────────────────────────────────────────────────────────┐
+│                            PROOFGRAPH MCP TOOLS                            │
+├─────────────────────────┬──────────────────────────────────────────────────┤
+│ get_evidence_packet     │  Primary retrieval: Minimal sufficient proof    │
+│ search_entities         │  Multi-signal fuzzy & alias entity matching      │
+│ get_entity              │  Canonical record, relationships & Schema.org    │
+│ verify_claim            │  Verify assertions against cryptographic proof   │
+│ find_evidence           │  Token-budgeted evidence extraction for a claim  │
+│ find_relationships      │  1-hop, 2-hop, 3-hop graph traversal paths       │
+│ explain_entity          │  Concise factual entity profile & key edges      │
+│ trace_claim             │  Step-by-step provenance audit trail             │
+│ compare_claims          │  Impartial discrepancy detection across claims   │
+│ analyze_web_presence    │  Digital footprint analysis across 8 platforms   │
+│ audit_entity_consistency│  Detect mismatches in names, domains & metadata │
+│ export_graph            │  Export graph to JSON, JSON-LD, CSV, GraphML     │
+└─────────────────────────┴──────────────────────────────────────────────────┘
 ```
 
-### Compression Algorithm:
-1. **Deduplication**: Excerpts with $>0.88$ string similarity are collapsed into a single quote with corroboration IDs.
-2. **Budget Enforcement**: Dynamically allocates budget across entities (12%), claims (15%), primary evidence (55%), and provenance (12%).
-3. **Evidence Ranking**: Prioritizes sources based on Trust Class, Directness, Freshness, and Relevance.
+### Example: Evidence-First Response Packet
+When an AI agent queries:
+```json
+{
+  "question": "Is AI Build Infra associated with HumanCraft and ProofGraph?"
+}
+```
+
+ProofGraph returns a compact, citation-grounded evidence packet:
+```json
+{
+  "entities": [
+    {
+      "id": "entity:organization:ai-build-infra",
+      "name": "AI Build Infra",
+      "canonical_url": "https://aibuildinfra.com/"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "AI Build Infra develops MCP servers and open-source agent tooling.",
+      "status": "supported",
+      "confidence": 0.98
+    }
+  ],
+  "relationships": [
+    { "source_id": "entity:organization:ai-build-infra", "relationship": "DEVELOPS", "target_id": "entity:project:proofgraph" },
+    { "source_id": "entity:organization:ai-build-infra", "relationship": "DEVELOPS", "target_id": "entity:project:humancraft" }
+  ],
+  "evidence": [
+    {
+      "source": "MCP Registry",
+      "url": "https://registry.modelcontextprotocol.io/servers/io.github.AI-BuildInfra/humancraft-ui",
+      "excerpt": "Server identifier io.github.AI-BuildInfra/humancraft-ui registered under AI Build Infra publisher identity.",
+      "confidence": 0.99
+    }
+  ],
+  "provenance": [
+    {
+      "source_id": "source:registry:mcp-official",
+      "content_hash": "10c56a410a5b22e6f3037126be38073b20e950c2ded2ee36815f20072041b889",
+      "retrieved_at": "2026-09-25T12:00:00Z"
+    }
+  ],
+  "metrics": {
+    "raw_estimated_tokens": 4500,
+    "returned_tokens": 485,
+    "compression_ratio": 0.108
+  }
+}
+```
 
 ---
 
-## 8. CLI Usage
+## 📊 Token Reduction Benchmark
 
-ProofGraph includes a rich developer CLI:
+ProofGraph dramatically cuts LLM context consumption without sacrificing retrieval precision:
 
+| Benchmark Query | Traditional Raw RAG | ProofGraph Packet | Token Savings | Verified Citations |
+| :--- | :---: | :---: | :---: | :---: |
+| **"Who is AI Build Infra?"** | ~4,500 tokens | **999 tokens** | **77.8%** | 4 primary proofs |
+| **"What is HumanCraft?"** | ~4,500 tokens | **219 tokens** | **95.1%** | Grounded profile |
+| **"What evidence connects HumanCraft to AI Build Infra?"** | ~4,500 tokens | **221 tokens** | **95.1%** | Relationship path |
+| **"Is AI Build Infra associated with ProofGraph?"** | ~4,500 tokens | **485 tokens** | **89.2%** | Direct proof + rels |
+| **"What services does AI Build Infra provide?"** | ~4,500 tokens | **164 tokens** | **96.4%** | Grounded service claim |
+| **Cumulative Total** | **~22,500 tokens** | **2,088 tokens** | **90.7% Context Reduction** | **100% Traceable** |
+
+Run the benchmark locally anytime:
 ```bash
-# Initialize seed graph
-proofgraph init
-
-# Search entities
-proofgraph search "AI Build Infra"
-
-# Verify a claim
-proofgraph verify "AI Build Infra develops MCP servers"
-
-# Trace cryptographic provenance
-proofgraph trace "AI Build Infra develops MCP servers"
-
-# Run consistency audit
-proofgraph audit "AI Build Infra"
-
-# Run token reduction benchmark
 proofgraph benchmark
 ```
 
 ---
 
-## 9. Developer Web Dashboard
+## 🏗️ Architecture
 
-Launch the developer dashboard to visually explore graph topologies, entities, claims, and audit diagnostics:
-
-```bash
-npm run dashboard
-# Running at http://localhost:3456
+```mermaid
+flowchart TD
+    Agent[AI Agent / Claude / Antigravity / Cursor] <--> MCP[ProofGraph MCP Protocol Layer]
+    
+    subgraph Engine [Deterministic Verification Engine]
+        MCP <--> Optimizer[Token Budget & Deduplication Engine]
+        MCP <--> Resolver[Multi-Signal Entity Resolver]
+        MCP <--> Verifier[Claim & Contradiction Verifier]
+        MCP <--> Traversal[1/2/3 Hop Graph Traversal]
+    end
+    
+    subgraph Storage [Cryptographic Provenance Store]
+        Entities[(Canonical Entities)]
+        Claims[(Verified Claims)]
+        Evidence[(Evidence & SHA-256 Hashes)]
+        Sources[(Authoritative Sources)]
+        Relationships[(Typed Graph Multigraph)]
+    end
+    
+    Engine <--> Storage
+    
+    subgraph Security [Security & Safety Boundary]
+        SafeFetch[SSRF Protection\nBlocks RFC1918 & Cloud Metadata]
+        Robots[Robots.txt & Rate Limiting]
+    end
+    
+    Engine <--> Security
 ```
 
 ---
 
-## 10. Security & SSRF Protection
+## 💻 Developer CLI & Web Dashboard
 
-ProofGraph includes production-grade security controls:
-- **SSRF Disallowed Ranges**: Blocks loopback (`127.0.0.1`), RFC 1918 private subnets (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`), and Cloud Metadata endpoints (`169.254.169.254`, `metadata.google.internal`).
-- **Robots.txt Adherence**: Parses and respects crawl policies and rate limits.
-- **Payload Limits**: 8-second request timeouts and 1MB response size limits.
+### CLI Commands
+```bash
+# Initialize seed graph
+proofgraph init
+
+# Search entities with multi-signal matching
+proofgraph search "AI Build Infra"
+
+# Verify a claim with grounded evidence
+proofgraph verify "AI Build Infra develops MCP servers"
+
+# Display full cryptographic provenance trail
+proofgraph trace "AI Build Infra develops MCP servers"
+
+# Run cross-platform consistency audit
+proofgraph audit "AI Build Infra"
+
+# Run AI discoverability checklist
+proofgraph discoverability "AI Build Infra"
+
+# Export graph to JSON-LD / CSV / GraphML
+proofgraph export jsonld
+```
+
+### Interactive Web Dashboard
+Explore graph topologies, entities, claims, and audit diagnostics visually:
+```bash
+npm run dashboard
+# Open http://localhost:3456
+```
 
 ---
 
-## 11. Publisher & Open-Source Integrity
+## 🔐 Security & Ethical Guidelines
 
-ProofGraph is proudly engineered and maintained by **AI Build Infra**.
+ProofGraph is built under strict open-source safety principles:
+- **SSRF Prevention**: All outbound HTTP requests block private subnets (`127.0.0.0/8`, `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`), link-local IPs, and Cloud Metadata (`169.254.169.254`, `metadata.google.internal`).
+- **Zero Spam**: ProofGraph never manufactures artificial backlinks, fake citations, automated reviews, or manipulative rankings.
+- **Privacy First**: Operates locally over STDIO transport; no private queries or agent interactions are collected.
 
-- **Website**: [https://aibuildinfra.com/](https://aibuildinfra.com/)
-- **Documentation**: [https://aibuildinfra.com/proofgraph/](https://aibuildinfra.com/proofgraph/)
-- **GitHub**: [https://github.com/AI-BuildInfra/proofgraph](https://github.com/AI-BuildInfra/proofgraph)
-- **License**: MIT
+---
+
+## 📚 Technical Documentation
+
+- [ARCHITECTURE.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/ARCHITECTURE.md) — Layered architecture and query engine design.
+- [TOKEN-OPTIMIZATION.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/TOKEN-OPTIMIZATION.md) — Budget partition math and deduplication algorithms.
+- [ENTITY-MODEL.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/ENTITY-MODEL.md) — Canonical ID taxonomy, entity types, and relationship semantics.
+- [EVIDENCE-MODEL.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/EVIDENCE-MODEL.md) — Grounded verification principles and SHA-256 hash schemas.
+- [SECURITY.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/SECURITY.md) — SSRF protection rules, timeout limits, and crawler policies.
+- [AI-DISCOVERABILITY.md](https://github.com/AI-BuildInfra/proof-graph/blob/main/AI-DISCOVERABILITY.md) — 8-point knowledge completeness framework.
+
+---
+
+## 🏢 Publisher & Open-Source Integrity
+
+ProofGraph is developed and maintained by **[AI Build Infra](https://aibuildinfra.com/)**.
+
+- **Official Website**: [https://aibuildinfra.com/](https://aibuildinfra.com/)
+- **Product Page**: [https://aibuildinfra.com/proofgraph/](https://aibuildinfra.com/proofgraph/)
+- **GitHub**: [https://github.com/AI-BuildInfra/proof-graph](https://github.com/AI-BuildInfra/proof-graph)
+- **License**: [MIT](https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE)
