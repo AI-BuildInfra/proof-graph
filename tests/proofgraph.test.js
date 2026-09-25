@@ -6,24 +6,24 @@
 import { describe, it, before } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { GraphStore, globalGraphStore, makeCanonicalId } from '../storage/graphStore.js';
-import { seedStandardGraph } from '../data/seed.js';
-import { EntityResolver, jaroWinklerSimilarity } from '../engine/resolver.js';
-import { ClaimVerifier } from '../engine/claimVerifier.js';
-import { TokenOptimizer, estimateTokens } from '../engine/tokenOptimizer.js';
-import { GraphTraversalEngine } from '../engine/graphTraversal.js';
-import { ConsistencyAuditor } from '../engine/consistencyAudit.js';
-import { AIDiscoverabilityEngine } from '../engine/aiDiscoverability.js';
-import { isPrivateOrForbiddenHost, validateSafeUrl } from '../security/safeFetch.js';
-import { RobotsParser } from '../security/robots.js';
-import { ToolHandler } from '../mcp/tools.js';
+import { GraphStore, globalGraphStore, makeCanonicalId } from '../dist/storage/graphStore.js';
+import { seedStandardGraph } from '../dist/data/seed.js';
+import { EntityResolver, jaroWinklerSimilarity } from '../dist/engine/resolver.js';
+import { ClaimVerifier } from '../dist/engine/claimVerifier.js';
+import { TokenOptimizer, estimateTokens } from '../dist/engine/tokenOptimizer.js';
+import { GraphTraversalEngine } from '../dist/engine/graphTraversal.js';
+import { ConsistencyAuditor } from '../dist/engine/consistencyAudit.js';
+import { AIDiscoverabilityEngine } from '../dist/engine/aiDiscoverability.js';
+import { isPrivateOrForbiddenHost, validateSafeUrl } from '../dist/security/safeFetch.js';
+import { RobotsParser } from '../dist/security/robots.js';
+import { ToolHandler } from '../dist/mcp/tools.js';
 
 describe('ProofGraph Core Test Suite', () => {
-  let store: GraphStore;
-  let resolver: EntityResolver;
-  let verifier: ClaimVerifier;
-  let traversal: GraphTraversalEngine;
-  let toolHandler: ToolHandler;
+  let store;
+  let resolver;
+  let verifier;
+  let traversal;
+  let toolHandler;
 
   before(() => {
     store = new GraphStore();
@@ -91,7 +91,6 @@ describe('ProofGraph Core Test Suite', () => {
     });
 
     it('should detect conflicting claims when contradictory evidence exists', () => {
-      // Add artificial contradicting evidence to test contradiction detection
       store.addEvidence({
         id: 'ev:test-contradiction',
         claim_id: 'claim:test-conflict',
@@ -130,7 +129,7 @@ describe('ProofGraph Core Test Suite', () => {
 
   describe('4. Token Optimization & Evidence Compression', () => {
     it('should enforce token budget and pack compact evidence packets', () => {
-      const entities = [store.getEntity('entity:organization:ai-build-infra')!];
+      const entities = [store.getEntity('entity:organization:ai-build-infra')];
       const claims = store.getClaimsForEntity('entity:organization:ai-build-infra');
       const allEvidence = store.getAllEvidence();
       const sourcesMap = new Map(store.getAllSources().map(s => [s.id, s]));
@@ -155,7 +154,7 @@ describe('ProofGraph Core Test Suite', () => {
         {
           id: 'ev:dup-1',
           source_id: 'source:1',
-          source_type: 'official_registry' as const,
+          source_type: 'official_registry',
           url: 'https://example.com/1',
           title: 'Source 1',
           publisher: 'Pub 1',
@@ -169,7 +168,7 @@ describe('ProofGraph Core Test Suite', () => {
         {
           id: 'ev:dup-2',
           source_id: 'source:2',
-          source_type: 'github_repository' as const,
+          source_type: 'github_repository',
           url: 'https://example.com/2',
           title: 'Source 2',
           publisher: 'Pub 2',
