@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/schema.json",
+  "name": "io.github.AI-BuildInfra/proofgraph",
+  "title": "ProofGraph",
+  "description": "Evidence-first knowledge & entity graph MCP server for AI agents to verify claims, discover relationships, and retrieve token-budgeted proof packets.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "publisher": {
+    "name": "AI Build Infra",
+    "url": "https://aibuildinfra.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AI-BuildInfra/proof-graph"
+  },
+  "homepage": "https://aibuildinfra.com/proofgraph/",
+  "packages": [
+    {
+      "registry": "npm",
+      "name": "@aibuildinfra/proofgraph",
+      "version": "1.0.0"
+    }
+  ]
+}
