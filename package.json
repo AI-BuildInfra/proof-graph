@@ -1,7 +1,7 @@
 {
   "name": "@aibuildinfra/proofgraph",
   "version": "1.0.0",
-  "mcpName": "io.github.AI-BuildInfra/proofgraph",
+  "mcpName": "io.github.AI-BuildInfra/proof-graph",
   "description": "Evidence-first knowledge and entity graph MCP server for AI agents to verify claims, discover relationships, and retrieve compact evidence packets. By AI Build Infra.",
   "main": "dist/index.js",
   "type": "module",
@@ -15,7 +15,8 @@
     "dashboard": "node dist/dashboard/server.js",
     "test": "node --test dist/tests/*.test.js",
     "benchmark": "node dist/cli/index.js benchmark",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
   },
   "files": [
     "dist",
