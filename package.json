@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "proofgraph": "./dist/cli/index.js"
+    "proofgraph": "dist/cli/index.js"
   },
   "scripts": {
     "build": "tsc",
