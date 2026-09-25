@@ -8,5 +8,15 @@
   "repository": {
     "source": "github",
     "url": "https://github.com/AI-BuildInfra/proof-graph"
-  }
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@aibuildinfra/proofgraph",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
 }
