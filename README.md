@@ -4,7 +4,22 @@
 > *Verify claims. Trace sources. Understand entities. Retrieve less context.*
 
 Published by **[AI Build Infra](https://aibuildinfra.com/)**  
-Package: [`@aibuildinfra/proofgraph`](https://www.npmjs.com/package/@aibuildinfra/proofgraph) • MCP Identifier: `io.github.AI-BuildInfra/proofgraph` • License: MIT
+Package: [`@aibuildinfra/proofgraph`](https://www.npmjs.com/package/@aibuildinfra/proofgraph) • MCP Identifier: `io.github.AI-BuildInfra/proof-graph` • License: MIT
+
+<p align="left">
+  <a href="https://www.npmjs.com/package/@aibuildinfra/proofgraph">
+    <img src="https://img.shields.io/npm/v/@aibuildinfra/proofgraph.svg?color=cb3837" alt="npm version">
+  </a>
+  <a href="https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph">
+    <img src="https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph/badges/score.svg" alt="Glama Score">
+  </a>
+  <a href="https://m8ven.ai/mcp/ai-buildinfra-proof-graph">
+    <img src="https://m8ven.ai/badge/mcp/ai-buildinfra-proof-graph" alt="M8ven Score">
+  </a>
+  <a href="https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  </a>
+</p>
 
 ---
 
