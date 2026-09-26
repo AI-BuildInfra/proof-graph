@@ -17,7 +17,7 @@ export function seedStandardGraph(store) {
             github: 'https://github.com/AI-BuildInfra',
             github_org: 'AI-BuildInfra',
             npm_scope: '@aibuildinfra',
-            email: 'contact@aibuildinfra.com',
+            email: 'info@aibuildinfra.com',
             domain: 'aibuildinfra.com',
             schema_org: true,
             mcp_registry: 'io.github.AI-BuildInfra',
