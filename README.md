@@ -270,6 +270,6 @@ ProofGraph is built under strict open-source safety principles:
 ProofGraph is developed and maintained by **[AI Build Infra](https://aibuildinfra.com/)**.
 
 - **Official Website**: [https://aibuildinfra.com/](https://aibuildinfra.com/)
-- **Product Page**: [https://aibuildinfra.com/proofgraph/](https://aibuildinfra.com/proofgraph/)
+- **Product Page**: [https://aibuildinfra.com/proofgraph/](https://aibuildinfra.com/proofgraph)
 - **GitHub**: [https://github.com/AI-BuildInfra/proof-graph](https://github.com/AI-BuildInfra/proof-graph)
 - **License**: [MIT](https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE)
