@@ -14,7 +14,7 @@ import { TokenOptimizer, estimateTokens } from '../dist/engine/tokenOptimizer.js
 import { GraphTraversalEngine } from '../dist/engine/graphTraversal.js';
 import { ConsistencyAuditor } from '../dist/engine/consistencyAudit.js';
 import { AIDiscoverabilityEngine } from '../dist/engine/aiDiscoverability.js';
-import { isPrivateOrForbiddenHost, validateSafeUrl } from '../dist/security/safeFetch.js';
+import { isPrivateOrForbiddenHost, validateSafeUrl, isPrivateIp, resolveAndValidateDns, SecurityError } from '../dist/security/safeFetch.js';
 import { RobotsParser } from '../dist/security/robots.js';
 import { ToolHandler } from '../dist/mcp/tools.js';
 
@@ -214,6 +214,27 @@ describe('ProofGraph Core Test Suite', () => {
       assert.equal(isPrivateOrForbiddenHost('192.168.1.1'), true);
       assert.equal(isPrivateOrForbiddenHost('169.254.169.254'), true);
       assert.equal(isPrivateOrForbiddenHost('metadata.google.internal'), true);
+    });
+
+    it('should accurately detect private, loopback, and carrier-grade NAT IPs', () => {
+      assert.equal(isPrivateIp('127.0.0.1'), true);
+      assert.equal(isPrivateIp('10.0.5.1'), true);
+      assert.equal(isPrivateIp('172.16.0.1'), true);
+      assert.equal(isPrivateIp('192.168.1.1'), true);
+      assert.equal(isPrivateIp('169.254.169.254'), true);
+      assert.equal(isPrivateIp('100.64.0.1'), true);
+      assert.equal(isPrivateIp('0.0.0.0'), true);
+      assert.equal(isPrivateIp('::1'), true);
+      assert.equal(isPrivateIp('fe80::1'), true);
+      assert.equal(isPrivateIp('fc00::1'), true);
+      assert.equal(isPrivateIp('8.8.8.8'), false);
+      assert.equal(isPrivateIp('1.1.1.1'), false);
+    });
+
+    it('should enforce DNS resolution validation and reject DNS rebinding/loopback hosts', async () => {
+      await assert.rejects(() => resolveAndValidateDns('127.0.0.1'), SecurityError);
+      await assert.rejects(() => resolveAndValidateDns('169.254.169.254'), SecurityError);
+      await assert.rejects(() => resolveAndValidateDns('localhost'), SecurityError);
     });
 
     it('should allow legitimate public domains', () => {

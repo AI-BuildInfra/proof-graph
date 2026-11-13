@@ -1,6 +1,6 @@
 {
   "name": "@aibuildinfra/proofgraph",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "mcpName": "io.github.AI-BuildInfra/proof-graph",
   "description": "Evidence-first knowledge and entity graph MCP server for AI agents to verify claims, discover relationships, and retrieve compact evidence packets. By AI Build Infra.",
   "main": "dist/index.js",
@@ -20,6 +20,7 @@
   },
   "files": [
     "dist",
+    "src",
     "server.json",
     "smithery.yaml",
     "README.md",
@@ -54,7 +55,7 @@
     "antigravity"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.6.1"
+    "@modelcontextprotocol/sdk": "^1.32.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.9",
