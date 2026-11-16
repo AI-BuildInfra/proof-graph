@@ -9,6 +9,7 @@
 [![npm version](https://img.shields.io/npm/v/@aibuildinfra/proofgraph.svg?color=cb3837&style=flat-square)](https://www.npmjs.com/package/@aibuildinfra/proofgraph)
 [![Glama Score](https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph/badges/score.svg)](https://glama.ai/mcp/servers/AI-BuildInfra/proof-graph)
 [![M8ven Score](https://m8ven.ai/badge/mcp/ai-buildinfra-seo-intentrank-ouv7e2)](https://m8ven.ai/mcp/ai-buildinfra-seo-intentrank-ouv7e2)
+[![ProofGraph (Antigravity MCP) — listed on Serverdex](https://serverdex.io/brand/badge.svg)](https://serverdex.io/server/io-github-ai-buildinfra-proof-graph?utm_source=badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://github.com/AI-BuildInfra/proof-graph/blob/main/LICENSE)
 [![MCP Standard](https://img.shields.io/badge/MCP-1.6.1-8A2BE2.svg?style=flat-square)](https://modelcontextprotocol.io/)
 
